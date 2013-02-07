@@ -13,6 +13,7 @@
  *
  *	PHP script 2.2 to display various PHP variables
  */
+$var = 0;	/* Temporary variable */
 // PHP must be configured to display_errors.
 $var = ini_get('display_errors');
 if ( $var == "" ) { // if display_errors is off, returns null string.
@@ -27,8 +28,9 @@ if ( $var == 'OFF' ) { // if display_errors is off returns null string.
 // script 2.2 - PHP variables
 $string = "A simple string"; // string variable
 $a_number = 1;	// integer value
-$float1 = .1; // double value
-$float2 = .2; // another double
+$float1 = 0.1; // double value
+$float2 = 0.2; // another double
+$boolean = True; // a boolean type
 // indexed array
 $veggie = array (
 1 => 'carrots',
@@ -58,6 +60,28 @@ print '<br />use print_r($veggie) indexed array and here\'s what you get <br />'
 print_r($veggie);
 print '<br />use print_r($meals) associative array and here\'s what you get <br />';
 print_r($meals);
+
+/*
+ * Use of is_scalar() function that tells us what is a scalar variable
+ * var_dump() is better function to print variables in a way that
+ * is more humanly readable.
+ */
+print "<br />is_scalar(string) = ";
+$var = is_scalar($string);
+var_dump($var);
+print "<br />is_scalar(integer) = ";
+$var = is_scalar($a_number);
+var_dump($var);
+print "<br />is_scalar(float) = ";
+$var = is_scalar($float1);
+var_dump($var);
+print "<br />is_scalar(boolean) = ";
+$var = is_scalar($boolean);
+var_dump($var);
+print "is_scalar(array) = ";
+$var = is_scalar($veggie);
+var_dump($var);
+print "<br />";
 ?>
 <!-- This is an HTML comment. -->
 </pre
