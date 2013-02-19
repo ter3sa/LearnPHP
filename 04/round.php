@@ -8,7 +8,7 @@
 <h1>Handle Form</h1>
 <?php
 /*
- *	Book reference: Script 4.x of "PHP for Web"
+ *	Book reference: Script 4.5 of "PHP for Web"
  *	Investigating round() function
  *	Author: Teresa Chin
  *

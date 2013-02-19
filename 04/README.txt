@@ -18,19 +18,35 @@ REVIEW
    The second parameter can be used to specify the number of decimals to
    to display.
 
-5. What is the importance of operator precedence?
+5. Operator precedence determines the order in which the arithmetic operations
+   are performed. This will determine the result when different arithmetic
+   operation are combined in a computation.
 
-6. What are incremental and decremental operators?
+6. Incremental operators (++) add one to a variable's value.
+   Decremental operators (--) decrease a variable's value by one.
 
-7. What are the arithmetic assignment operators?
+7. Arithmetic assignment operators are: +=, -=, *=, and /=.
+   These operators perform an arithmetic operation on a variable and
+   save the result back in the variable; i.e. $var += $value is the same as
+   $var = $var + $value
 
 
 PURSUE
 ------
 4.1	- calculator.html
-4.2 - handle_calc.php
+4.2 - handle_calc_42.php [earlier version]
 	  uses number_format() to format values for printing
-4.3 - handle_calc.php
+4.3 - handle_calc_43.php [another version]
 	  uses setlocale() and money_format() to print the price values.
+4.4 - handle_calc.php  [ final version ]
+	  uses incremental operators and arithmetic assignment operators.
 
-2. Create another HTML form for taking numeric values. Then create the PHP script that recieves the form data, performs some calculations, formats the values and prints the results.
+4.5	- round.php
+	  a script that just experiments with round() function.
+
+4.6 - random.php
+	  Takes input from a form and calculates something and gives it back.
+
+4.7	average.html & handle_avg.php
+	- a form and script to handle calculating the average of marks
+	from 8 subjects. (was thinking about report cards...)
