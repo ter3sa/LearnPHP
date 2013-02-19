@@ -31,11 +31,8 @@ REVIEW
    of the system; i.e. reveals script paths and location of files, version of code.
 
 PURSUE
-- See feedback.html and handle_form.php
+- feedback.html and handle_form.php for exploring POST method
   Set $debug to true to enable all error reporting.
-- See hello.html & hello.php
-5. Experiment with the hello.html and the hello.php pages to send different values, including numbers to the PHP script through the URL.
-6. Create a variation on hello.html that sends multiple name=value paris to a PHP script. Have the PHP script then print all the received values.
-7. If you're the inquisitive type, and don't mind waiting for answeers, try passing more coplicated values to a page through the URL. Try using spaces and pucntuation to see what happens.
-8. Create a new HTML form that performa a task you envision yourself needing (or a lighterweight version of that functionality). Then create the PHP script that handles the form printing just the received data.
- 
+- hello.html & hello.php explores preliminary GET method
+- See hello2.html, hello2.php and hello3.html for exploring GET method
+- Example contact.html and contact.php
