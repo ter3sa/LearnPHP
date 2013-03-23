@@ -1,0 +1,55 @@
+<?php // Script 8.11 - header.html
+// Turn on output buffering:
+ob_start();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/2.css" media="screen,projection" />
+	<title>
+<?php
+	/* Scripts for Chapter 8 of PHP for the Web by Larry Ullman
+	 * Modifications:
+	 * Script 8.6 - defining TITLE as a constant
+	 * Script 8.7 - print the current date and time (see below)
+	 * Script 8.11 - Add output buffering to the web application by caling ob_start()
+	 *				This must be added to the top of the script before any HTML code
+	 */
+	if (defined('TITLE')) {
+		print TITLE;
+	} else {
+		print 'Raise High the Roof Beam! A J.D. Salinger Fan Club';
+	}
+?>
+	</title>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+	<p class="description">A J.D. Salinger Fan Club</p>
+	<h1><a href="index.php">Raise High the Roof Beam!</a></h1>
+</div><!-- header -->
+<div id="navigation">
+	<ul id="nav">
+		<li><a href="books.php">Books</a></li>
+		<li><a href="#">Stories</a></li>
+		<li><a href="#">Quotes</a></li>
+		<li><a href="login.php">Login</a></li>
+		<li><a href="register.php">Register</a></li>
+	</ul>
+</div><!-- naviation -->
+<div id="sidebar">
+	<h2>Favorite Quotes</h2>
+		<p class="news">I don't exactly know what I mean by that, but I mean it. <br />- <em>The Catcher in the Rye</em></p>
+<p class="news">I privately say to you, old friend... please accept from me this unpretentious bouquet of early-blooming parentheses: (((()))).<br />- <em>Raise High the Roof Beam, Carpenters and Seymour: An Introduction</em></p>
+<p><?php
+// Script 8.7 - print the current date and time
+// Set the timezone
+date_default_timezone_set('America/Toronto');
+// print the current date and time with Timezone
+print date('l F j g:i a T');
+?></p>
+</div><!-- sidebar -->
+<div id="content">
+<!-- BEGIN CHANGEABLE CONTENT. -->
