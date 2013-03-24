@@ -14,7 +14,7 @@
  * the following code queries the option and ensures that it is set on.
  * if debug is true, ensure all error reporting and debugging code is turned on.
  */
-$debug = true;	// debug turns on error messages and dumps of variables
+$debug = false;	// debug turns on error messages and dumps of variables
 if ($debug) {
 	$display_errors = ini_get('display_errors');
 	if ( $display_errors == false ) { 
