@@ -27,8 +27,15 @@ ob_start();
 <body>
 <div id="wrapper">
 <div id="header">
-	<p class="description">A J.D. Salinger Fan Club</p>
 	<h1><a href="index.php">Raise High the Roof Beam!</a></h1>
+	<p class="description">A J.D. Salinger Fan Club</p>
+<p id="now"><?php
+// Script 8.7 - print the current date and time
+// Set the timezone
+date_default_timezone_set('America/Toronto');
+// print the current date and time with Timezone
+print date('l F j g:i a T');
+?></p>
 </div><!-- header -->
 <div id="navigation">
 	<ul id="nav">
@@ -43,13 +50,6 @@ ob_start();
 	<h2>Favorite Quotes</h2>
 		<p class="news">I don't exactly know what I mean by that, but I mean it. <br />- <em>The Catcher in the Rye</em></p>
 <p class="news">I privately say to you, old friend... please accept from me this unpretentious bouquet of early-blooming parentheses: (((()))).<br />- <em>Raise High the Roof Beam, Carpenters and Seymour: An Introduction</em></p>
-<p><?php
-// Script 8.7 - print the current date and time
-// Set the timezone
-date_default_timezone_set('America/Toronto');
-// print the current date and time with Timezone
-print date('l F j g:i a T');
-?></p>
 </div><!-- sidebar -->
 <div id="content">
 <!-- BEGIN CHANGEABLE CONTENT. -->

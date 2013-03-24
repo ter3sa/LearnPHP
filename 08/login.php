@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			header ("Location: welcome.php");
 			exit();
 		} else { // Incorrect!
-			print '<p>The submitted email address and password do not match those on file!<br />Go back and try again.</p>';
+			print '<p class="error">The submitted email address and password do not match those on file!<br />Go back and try again.</p>';
 		}
 	} else { // Forgot a field.
-		print '<p>Please make sure you enter both the email address and a password!<br />Go back and try again.</p>';
+		print '<p class="error">Please make sure you enter both the email address and a password!<br />Go back and try again.</p>';
 	}
 } else { // GET request method
 	// Display the form

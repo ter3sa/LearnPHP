@@ -1,9 +1,10 @@
-<?php // Script 8.9 - register.php
+<?php // Script 8.11 - register.php
 /* This page gathers information to register people for the site
  * Modifications:
  * 8.9 	- Explores the "sticky" features of forms
  * 8.9a - modified to used nested conditionals for password checking.
  * 8.10 - Use mail functionality in PHP script
+ * 8.11 - Change $body email message
  */
 // Set the page title and include the header file
 define ('TITLE', 'Register');
@@ -26,14 +27,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ( empty($_POST['first_name']) ) {
 		$problem = TRUE;
 		print '<p class="error">Please enter your first name!</p>';
+	} else {
+		$firstname = strip_tags($_POST['first_name']);
 	}
 	if ( empty($_POST['last_name']) ) {
 		$problem = TRUE;
 		print '<p class="error">Please enter your last name!</p>';
+	} else {
+		$lastname = strip_tags($_POST['last_name']);
 	}
 	if ( empty($_POST['email']) || (substr_count($_POST['email'], '@') !=1) ) {
 		$problem = TRUE;
 		print '<p class="error">Please enter your email address!</p>';
+	} else {
+		// verify email address using filter, flag prolbems.
+		$email = trim($_POST['email']);
+		$got = filter_var($email, FILTER_VALIDATE_EMAIL);
+		if ($got == FALSE || $got !== $email ) {
+			// flag problem with email address
+			$problem = TRUE;
+			print '<p class="error">Problem with your email address.</p>';
+			if ($debug) {
+				print"problems with email address:";
+				var_dump($got);
+				var_dump($email);
+			}
+		}
 	}
 	if ( empty($_POST['password1']) ) {
 		$problem = TRUE;
@@ -58,11 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if ( !$problem ) {
 		// No problems
-		print '<p>You are now registered!<br />Okay, not really registered but...</p>';
+		print '<p>You are now registered!<br />Okay, not really registered but...</p><p>Check your email for further instructions.</p>';
 		
 		// Send the email:
-		$body = "Thank you for registering with the J.D. Salinger fan Club! Your password is '($passwd)'.";
-		mail($_POST['email'], 'Registration Confirmation', $body, 'From: teresa@localhost');
+		$body = "Welcome ". $firstname. " " . $lastname.",\nThank you for registering with the J.D. Salinger fan Club!\nThis email address has been verified and your password is '($passwd)'.\nUse this email address and your password to login to the website.\nWe hope you enjoy the benefits of joining the club.";
+		mail($email, 'Registration Confirmation', $body, 'From: admin@localhost');
 		// Clear the posted values:
 		$_POST = array();
 		$registered = TRUE; // successfully registered

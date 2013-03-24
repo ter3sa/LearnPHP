@@ -82,3 +82,4 @@ Pursue
 
 5. Change the subject and body of the email sent upon (pseudo-) registration
    to something more interesting and informative.
+	-->See final version of register.php for changes to $body
