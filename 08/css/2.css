@@ -242,3 +242,7 @@ a.more:hover {
 	right: 40px;
 	bottom: 20px;
 }
+
+.error {
+	color: red;
+}
