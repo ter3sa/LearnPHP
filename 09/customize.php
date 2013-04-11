@@ -9,7 +9,7 @@ ob_start();	// buffer output
  *	9.1 - initial design to display and handle form
  *  9.9 - apply user's preferences
  *  9.10 - make form sticky by reflecting current user selections
- *  9.0a - added code to check peferences stored in the cookie
+ *  9.0a - added code to check preferences stored in the cookie
  */
 // include code to turn on debugging code
 include("templates/debug.php");
