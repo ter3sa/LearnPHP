@@ -43,20 +43,25 @@ Pursue
 1. Install the Firebug extension for Firefox.
 
 2. Look up the PHP manual page for setcookie() function.
-   Review the information and user comments there for
+   Review the information and user comments there for 
    added instructions on cookies.
 
-3. Rewrite customize.php so that the script also applies the user's preferences.   Hint: You need to take into account the fact that the cookies aren't
-   available immediately after they've been set. Instead, ...
+3. Rewrite customize.php so that the script also applies the user's
+   preferences. Hint: You need to take into account the fact that the
+   cookies aren't available immediately after they've been set.
+   Instead, you would write the CSS code using the $_POST values after
+   the form has been submitted, the cookie values upon first arriving
+   at the page (if the cookies exist), and the default values otherwise.
 	--> See customize.php script version 9.9
 
-4. Make the form in customize.php sticky, so that it reflects the user's current
-   choices.
+4. Make the form in customize.php sticky, so that it reflects the
+   user's current choices.
    --> See customize.php Script 9.10
           reset.php Script 9.4
           view_settings.php Script 9.2
 
-5. Rewrite welcome.php so that the print statement that greets the user by email address uses double quotation marks.
+5. Rewrite welcome.php so that the print statement that greets the user
+   by email address uses double quotation marks.
    --> copy of files from chapter 8, files marked with '*' are modified for Chapter 9
     css/2.css
     index.php

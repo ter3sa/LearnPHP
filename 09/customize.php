@@ -1,4 +1,5 @@
 <?php
+ob_start();	// buffer output
 /* Chapter 9 - Exploring Cookies & Sessions
  * Script 9.10 - customize.php
  * Allow a user to select font size and color preferences
@@ -8,19 +9,35 @@
  *	9.1 - initial design to display and handle form
  *  9.9 - apply user's preferences
  *  9.10 - make form sticky by reflecting current user selections
+ *  9.0a - added code to check peferences stored in the cookie
  */
-// Set the page title and include the header file
-/* define ('TITLE', 'Preferences');
-	include("templates/header.html");
-	include("templates/debug.php");
-	print '<h2>Peferences Form</h2>
-		<p>Register so that you can take advantage of certain features like this, that and the other thing.</p>';
-*/
+// include code to turn on debugging code
+include("templates/debug.php");
+print '<h1>Customize Your Settings</h1>';
+
 // flag any problems
 $problem = FALSE; // initially, no problems
 $errmsg = "";	// no error messages.
-$fontsize = ""; // default font-size if none specified 
+$fontsize = ""; // default font-size if none specified
 $fontcolor = ""; // default font-color if none specified
+// Check if preferences were saved in a cookie.
+// read styling information from cookies
+$debug = true; // turn on debugging code to print info from cookies
+// Font Size
+if (isset($_COOKIE['font_size'])) {
+	$fontsize = htmlentities($_COOKIE['font_size']);
+  if ($debug) {
+    print "DEBUG: cookie font-size: ". $fontsize . ";";
+  }
+}
+// Font Color
+if (isset($_COOKIE['font_color'])) {
+	$fontcolor = htmlentities($_COOKIE['font_color']);
+  if ($debug) {
+    print "DEBUG cookie font-color: ". $fontcolor . ";";
+  }
+}
+
 // Check if the form has been submitted and handle data
 if ( isset($_POST['font_size'], $_POST['font_color'])) {
 	// Check for valid values
@@ -42,8 +59,8 @@ if ( isset($_POST['font_size'], $_POST['font_color'])) {
 		// Send the cookies;
 		setcookie('font_size', $_POST['font_size'], 0 , '');
 		setcookie('font_color', $_POST['font_color'], 0 , '');
-    $fontsize = $_POST['font_size'];
-    $fontcolor = $_POST['font_color'];
+        $fontsize = $_POST['font_size'];
+        $fontcolor = $_POST['font_color'];
 		// Message to be printed later.
 		$msg = '<p>Your settings have been entered! Click <a href="view_settings.php">here</a> to see them in action.</p>';
 	} 
@@ -94,3 +111,4 @@ if (isset($msg)) {
 </form>
 </body>
 </html>
+<?php ob_flush(); // flush output buffer ?>
